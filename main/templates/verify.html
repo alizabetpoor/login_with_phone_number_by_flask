@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div container>
+        <div class="row-6 mt-4 d-flex justify-content-center">
+            <div class="col-4">
+                <form method="POST" action="">
+                    {% for error in form.code.errors %}
+                        <script>alertify.notify('{{error}}', 'error', 4)</script>
+                    {% endfor %}
+                    {{form.hidden_tag()}}
+                    <div class="form-floating mb-3">
+                        {{ form.code(class_="form-control") }}
+                        <label for="floatingcode">code</label>
+                    </div>
+                    <div class="mb-3 d-flex justify-content-center">
+                        {{form.submit(class_="btn btn-primary")}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

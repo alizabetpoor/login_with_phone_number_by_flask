@@ -1,0 +1,27 @@
+
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row-6 d-flex justify-content-center mt-4">
+            
+            {% if current_user.is_authenticated %}
+                <div class="col-3 d-flex justify-content-center">
+                    <a href="{{url_for('profile')}}" class="btn btn-primary">
+                        profile
+                    </a>
+                </div>
+            {% else %}
+                <div class="col-3 d-flex justify-content-center">
+                    <a href="{{url_for('register')}}" class="btn btn-primary">
+                        register
+                    </a>
+                </div>
+                <div class="col-3 d-flex justify-content-center">
+                    <a href="{{url_for('login')}}" class="btn btn-primary">
+                        login
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

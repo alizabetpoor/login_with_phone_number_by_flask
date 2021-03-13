@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div container>
+        <div class="row-6 d-flex justify-content-center">
+            <div class="col-4">
+                <form method="POST" action="">
+                    {% for error in form.phonenumber.errors %}
+                        <script>alertify.notify('{{error}}', 'error', 4)</script>
+                    {% endfor %}
+                    <h2 class="display-2 pb-4">login</h2>
+                    {{form.hidden_tag()}}
+                    <div class="form-floating mb-3">
+                        {{ form.phonenumber(class_="form-control") }}
+                        <label for="floatingphonenumber">phone number</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        {{ form.password(class_="form-control") }}
+                        <label for="floatingpassword">password</label>
+                    </div>
+                    <div class="mb-3 d-flex justify-content-center">
+                        {{form.submit(class_="btn btn-primary")}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
